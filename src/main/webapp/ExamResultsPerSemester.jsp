@@ -1,3 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mid Marks</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            color: #fff;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 18px;
+        }
+
+        table, td, th {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Mid Marks</div>
+        <table>
+            <tr>
+                <th>S_No</th>
+                <th>Subject Code</th>
+                <th>Marks</th>
+            </tr>
 <%@page import="java.sql.*"%>
 <%
 String driver = "com.mysql.cj.jdbc.Driver";
@@ -26,43 +90,15 @@ try {
     statement.setString(4, mid);
 
     resultSet = statement.executeQuery();
-%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Mid Marks</title>
-    <style>
-        table, td {
-            padding: 10px;
-            margin: 50px auto;
-            font-size: 20px;
-            background-color: #ECC9EE;
-        }
-        b, u {
-            font-size: 24px;
-            padding-left: 300px;
-            color: #643A6B;
-        }
-    </style>
-</head>
-<body style="background-color:#D4ADFC;">
-    <b><u>Mid Marks</u></b>
-    <table border="5" bordercolor="#A9907E" style="color:#8B1874;">
-        <tr style="color:#1D267D;">
-            <td><i>S_No</i></td>
-            <td><i>Subject Code</i></td>
-            <td><i>Marks</i></td>
-        </tr>
-<%
+
     int i = 1;
     while (resultSet.next()) {
 %>
-        <tr>
-            <td><%= i++ %></td>
-            <td><%= resultSet.getString("Subject") %></td>
-            <td><%= resultSet.getInt("Marks") %></td>
-        </tr>
+            <tr>
+                <td><%= i++ %></td>
+                <td><%= resultSet.getString("Subject") %></td>
+                <td><%= resultSet.getInt("Marks") %></td>
+            </tr>
 <%
     }
 } catch (Exception e) {
@@ -74,6 +110,7 @@ try {
     try { if (connection != null) connection.close(); } catch (Exception e) {}
 }
 %>
-    </table>
+        </table>
+    </div>
 </body>
 </html>
