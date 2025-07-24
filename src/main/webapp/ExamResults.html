@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam Results</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 15px;
+      padding: 40px;
+      width: 350px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      color: #fff;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    label {
+      font-size: 16px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #000;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #2E4374;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #1e3059;
+    }
+  </style>
+</head>
+<body>
+  <form class="form-container" action="ExamResultsPerSemester.jsp" method="GET">
+    <h2>Exam Results</h2>
+    <label>PinNumber:</label>
+    <input type="text" name="PinNumber" required />
+    <label>Year:</label>
+    <input type="text" name="Year" required />
+    <label>Semester:</label>
+    <input type="text" name="Semester" required />
+    <label>Mid:</label>
+    <input type="text" name="Mid" required />
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>
